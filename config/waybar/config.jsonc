@@ -199,8 +199,8 @@
     },
     "return-type": "json",
     "exec-if": "which mako",
-    "exec": "/home/splyffer/.local/bin/mako-dnd",
-    "on-click": "/home/splyffer/.local/bin/mako-dnd toggle",
+    "exec": "/home/splyffer/.config/waybar/scripts/mako-dnd",
+    "on-click": "/home/splyffer/.config/waybar/scripts/mako-dnd toggle",
     "signal": 6
   }
 }
