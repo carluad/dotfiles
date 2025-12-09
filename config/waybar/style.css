@@ -55,7 +55,8 @@ window#waybar.solo {
 #temperature,
 #custom-zypper,
 #backlight,
-#tray {
+#tray,
+#custom-sunset {
   margin: 0px 6px 0px 10px;
   /*    min-width: 30px;*/
 }
