@@ -15,6 +15,7 @@
   "modules-right": [
     "tray",
     "idle_inhibitor",
+    "custom/sunset",
     "custom/zypper",
     "network",
     "bluetooth",
@@ -202,5 +203,19 @@
     "exec": "/home/splyffer/.config/waybar/scripts/mako-dnd",
     "on-click": "/home/splyffer/.config/waybar/scripts/mako-dnd toggle",
     "signal": 6
-  }
+  },
+  "custom/sunset": {
+    "interval": "once",
+    "tooltip": true,
+    "return-type": "json",
+    "format": "{icon}",
+    "format-icons": {
+      "on": "󰌵",
+      "off": "󰌶"
+    },
+    "exec": "latitude=51.6 longitude=7.4 /home/splyffer/.config/waybar/scripts/sunset.sh",
+    "on-click": "/home/splyffer/.config/waybar/scripts/sunset.sh toggle",
+    "exec-if": "/home/splyffer/.config/waybar/scripts/sunset.sh check",
+    "signal": 6
+  },
 }
