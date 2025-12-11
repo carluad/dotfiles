@@ -1,14 +1,18 @@
 #!/bin/sh
 
-if [ "$(makoctl mode)" = "default" ]; then
+mode=$(makoctl mode)
+
+if [ "$mode" = "default" ]; then
   class="off"
-  if [ "$1" = "toggle" ]; then
+ elif [ "$mode" = "dnd" ]; then
+  class="on"
+ fi
+
+if [ $1 = "toggle" ]; then
+  if [ "$mode" = "default" ]; then
     makoctl mode -s dnd
     class="on"
-  fi
-elif [ "$(makoctl mode)" = "dnd" ]; then
-  class="on"
-  if [ "$1" = "toggle" ]; then
+  elif [ "$mode" = "dnd" ]; then
     makoctl mode -s default
     class="off"
   fi
