@@ -7,10 +7,10 @@ case $OPTIONS in
     niri msg action quit --skip-confirmation
     ;;
   "Reboot")
-    systemctl reboot
+    loginctl reboot
     ;;
   "Poweroff")
-    systemctl poweroff
+    loginctl poweroff
     ;;
   *)
     ;;

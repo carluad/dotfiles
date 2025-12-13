@@ -3,7 +3,9 @@
 // Check the wiki for a full description of the configuration:
 // https://yalter.github.io/niri/Configuration:-Introduction
 
-// spawn-at-startup 
+spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
+spawn-sh-at-startup "/usr/bin/swayidle -w timeout 601 'niri msg action power-off-monitors' timeout 600 'swaylock -f' before-sleep 'swaylock -f'"
+
 prefer-no-csd
 
 cursor {
@@ -86,7 +88,7 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#35b9ab"
+        active-color "#7fc8ff"
 
         // Color of the ring on inactive monitors.
         //
@@ -208,7 +210,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "kitty"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "kitty" "--single-instance"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "pkill fuzzel || fuzzel --terminal 'kitty -e'"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Super+Tab { spawn-sh "pkill fuzzel || ~/.local/bin/fuzzel-niri-windows"; }
@@ -469,23 +471,23 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 }
 
-recent-windows {
-    highlight {
-        active-color "#35b9ab"
-        corner-radius 4
-    }
-    binds {
-        Alt+Tab              { next-window; }
-        Alt+Shift+Tab        { previous-window; }
-        Alt+apostrophe       { next-window     filter="app-id"; }
-        Alt+Shift+apostrophe { previous-window filter="app-id"; }
+// recent-windows {
+//     highlight {
+//         active-color "#35b9ab"
+//         corner-radius 4
+//     }
+//     binds {
+//         Alt+Tab              { next-window; }
+//         Alt+Shift+Tab        { previous-window; }
+//         Alt+apostrophe       { next-window     filter="app-id"; }
+//         Alt+Shift+apostrophe { previous-window filter="app-id"; }
 
-        Mod+Tab              { next-window; }
-        Mod+Shift+Tab        { previous-window; }
-        Mod+apostrophe       { next-window     filter="app-id"; }
-        Mod+Shift+apostrophe { previous-window filter="app-id"; }
-    }
-}
+//         Mod+Tab              { next-window; }
+//         Mod+Shift+Tab        { previous-window; }
+//         Mod+apostrophe       { next-window     filter="app-id"; }
+//         Mod+Shift+apostrophe { previous-window filter="app-id"; }
+//     }
+// }
 
 layer-rule {
     match namespace="swww-daemonoverview"
