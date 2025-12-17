@@ -83,6 +83,7 @@ window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     match title="^Picture-in-Picture$"
     match app-id="dev.bragefuglseth.Keypunch"
+    match app-id="org.gnome.Calculator"
 
     open-floating true
 }
