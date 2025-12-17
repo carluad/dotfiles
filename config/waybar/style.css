@@ -72,7 +72,7 @@ window#waybar {
 }
 
 #battery.charging {
-  color: rgba(217, 216, 216, 1);
+  color: rgba(47, 225, 37, 1);
 }
 
 #bluetooth.disabled {
