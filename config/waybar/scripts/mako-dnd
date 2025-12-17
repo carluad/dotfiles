@@ -8,7 +8,7 @@ if [ "$mode" = "default" ]; then
   class="on"
  fi
 
-if [ $1 = "toggle" ]; then
+if [ "$1" = "toggle" ]; then
   if [ "$mode" = "default" ]; then
     makoctl mode -s dnd
     class="on"
