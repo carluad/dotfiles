@@ -213,7 +213,7 @@
       "on": "󰌵",
       "off": "󰌶"
     },
-    "exec": "latitude=51.6 longitude=7.4 /home/splyffer/.config/waybar/scripts/sunset.sh",
+    "exec": "latitude=51.6 longitude=7.4 /home/carluad/.config/waybar/scripts/sunset.sh",
     "on-click": "/home/carluad/.config/waybar/scripts/sunset.sh toggle",
     "exec-if": "/home/carluad/.config/waybar/scripts/sunset.sh check",
     "signal": 6
