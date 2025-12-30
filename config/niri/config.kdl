@@ -103,6 +103,8 @@ window-rule {
 
 window-rule {
     match app-id="steam"
+    match app-id="luanti.bin"
+    // match app-id="imv"
     open-maximized true
 }
 
@@ -132,6 +134,12 @@ binds {
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "pkill fuzzel || fuzzel --terminal 'kitty -e'"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Super+Tab { spawn-sh "pkill fuzzel || ~/.local/bin/fuzzel-niri-windows"; }
+    Mod+N { spawn-sh "swaync-client -t -sw"; }
+
+    Mod+B { spawn "qutebrowser"; }
+    Mod+Shift+B { spawn "qutebrowser" "--target" "private-window"; }
+    Mod+E { spawn "nautilus"; }
+    Mod+Shift+E { spawn "kitty" "-e" "yazi"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
@@ -347,7 +355,6 @@ binds {
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
-    Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { spawn-sh "pkill fuzzel || ~/.local/bin/fuzzel-power-menu"; }
 
     // Powers off the monitors. To turn them back on, do any input like

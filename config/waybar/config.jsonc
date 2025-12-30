@@ -25,7 +25,7 @@
     "battery",
     "pulseaudio",
     "clock",
-    "custom/mako"
+    "custom/notification"
   ],
   "niri/workspaces": {
     "all-outputs": false,
@@ -160,7 +160,7 @@
     "tooltip-format-disabled": "{status}",
     "tooltip-format-connected": "{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+    "format-connected-battery": " {device_battery_percentage}%",
     "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
     // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
     "on-click": "bluetooth toggle; pkill -SIGRTMIN+8 waybar",
@@ -218,4 +218,20 @@
     "exec-if": "/home/carluad/.config/waybar/scripts/sunset.sh check",
     "signal": 6
   },
+  "custom/notification": {
+    "tooltip": true,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><small><sup>⬤</sup></small></span>",
+      "none": " ",
+      "dnd-notification": "<span foreground='red'><small><sup>⬤</sup></small></span>",
+      "dnd-none": " "
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  }
 }
