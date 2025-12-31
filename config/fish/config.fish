@@ -10,7 +10,7 @@ if status is-interactive
     alias db distrobox
     alias dbe "distrobox enter"
     alias dbc "distrobox create"
-    alias dbr "distrobox remove"
+    alias dbr "distrobox rm"
     alias dbl "distrobox list"
     alias dbs "distrobox stop"
 
