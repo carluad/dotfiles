@@ -1,5 +1,6 @@
 // https://kdl.dev
 // https://yalter.github.io/niri/Configuration
+spawn-at-startup "anyrun" "daemon"
 
 prefer-no-csd
 
@@ -131,7 +132,7 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "pkill fuzzel || fuzzel --terminal 'kitty -e'"; }
+    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "anyrun"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Super+Tab { spawn-sh "pkill fuzzel || ~/.local/bin/fuzzel-niri-windows"; }
     Mod+N { spawn-sh "swaync-client -t -sw"; }
@@ -355,7 +356,7 @@ binds {
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
-    Ctrl+Alt+Delete { spawn-sh "pkill fuzzel || ~/.local/bin/fuzzel-power-menu"; }
+    Ctrl+Alt+Delete { spawn-sh "pkill wlogout || wlogout"; }
 
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
