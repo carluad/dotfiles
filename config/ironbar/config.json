@@ -1,0 +1,55 @@
+{
+  "icon_theme": "Adwaita-teal",
+  "position": "top",
+  "height": 24,
+  "start": [
+    {
+      "type": "workspaces"
+    },
+    {
+      "type": "focused",
+      "icon_size": 16
+    }
+  ],
+  "center": [],
+  "end": [
+    {
+      "type": "sys_info",
+      "format": ["{cpu_percent}% ", "{memory_percent}% "],
+      "interval": {
+        "cpu": 1
+      }
+    },
+    {
+      "type": "clipboard",
+      "max_items": 5,
+      "truncate": {
+        "mode": "end",
+        "length": 30
+      }
+    },
+    {
+      "type": "network_manager",
+      "icon_size": 16
+    },
+    {
+      "type": "bluetooth"
+    },
+    {
+      "type": "volume"
+    },
+    {
+      "type": "battery",
+      "icon_size": 16
+    },
+    {
+      "type": "tray"
+    },
+    {
+      "type": "clock"
+    },
+    {
+      "type": "notifications"
+    }
+  ]
+}
