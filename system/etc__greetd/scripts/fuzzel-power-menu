@@ -1,0 +1,14 @@
+#!/bin/env sh
+
+OPTIONS=$(echo -e "\Reboot\nPoweroff" | fuzzel -d -p " " -w 15 -l 3)
+
+case $OPTIONS in
+ "Reboot")
+    systemctl reboot
+    ;;
+  "Poweroff")
+    systemctl poweroff
+    ;;
+  *)
+    ;;
+esac

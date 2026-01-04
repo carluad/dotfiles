@@ -1,0 +1,22 @@
+spawn-sh-at-startup "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY NIRI_SOCKET"
+spawn-sh-at-startup "gtkgreet -l -s /etc/greetd/style.css; niri msg action quit --skip-confirmation"
+//exec /usr/libexec/polkit-gnome-authentication-agent-1
+
+cursor {
+	xcursor-theme "Noir"
+}
+
+hotkey-overlay {
+	skip-at-startup
+}
+
+input {
+	touchpad {
+		tap
+		dwt
+	}
+}
+
+binds {
+	Ctrl+Alt+Delete { spawn-sh "pkill fuzzel || ~/.local/bin/fuzzel-power-menu"; }
+}
