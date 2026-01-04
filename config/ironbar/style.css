@@ -17,6 +17,20 @@
   font-family: "Noto Sans";
 }
 
+slider {
+  border-radius: 100%;
+  background-color: var(--color-active);
+}
+
+highlight {
+  width: 2px;
+  background: red;
+}
+
+radio {
+  -gtk-icon-filter: hue-rotate(45deg) contrast(0.6);
+}
+
 #bar,
 popover,
 popover contents,
@@ -76,6 +90,10 @@ button:active {
 
 .workspaces .item.urgent {
   background-color: var(--color-urgent);
+}
+
+.popup-volume .device-box .slider highlight {
+  background-color: red;
 }
 
 /* --- custom: power menu ---  */

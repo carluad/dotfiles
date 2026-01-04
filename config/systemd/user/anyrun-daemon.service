@@ -1,11 +1,13 @@
 [Unit]
-Description=Anyrun daemon
+Description=Anyrun launcher daemon
 Documentation=https://github.com/anyrun-org/anyrun
 PartOf=graphical-session.target
 After=graphical-session.target
 Requisite=graphical-session.target
 
 [Service]
+Type=exec
+KillMode=process
 ExecStart=/usr/bin/anyrun daemon
 ExecReload=kill -SIGUSR2 $MAINPID
 Restart=on-failure

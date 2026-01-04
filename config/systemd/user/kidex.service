@@ -1,0 +1,13 @@
+[Unit]
+Description=Simple file indexing
+Documentation=https://github.com/Kirottu/kidex
+
+[Service]
+Type=exec
+KillMode=process
+ExecStart=/usr/bin/kidex
+ExecReload=kill -SIGUSR2 $MAINPID
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
