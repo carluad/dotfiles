@@ -45,7 +45,7 @@ layout {
         width 4
 
         // Color of the ring on the active monitor.
-        active-color "#35b9ab"
+        active-color "#1cb08e"
 
         // Color of the ring on inactive monitors.
         inactive-color "#505050"
@@ -135,7 +135,7 @@ binds {
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Run an Application: anyrun" { spawn "anyrun"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
-    Super+Tab { spawn-sh "pkill fuzzel || ~/.local/bin/fuzzel-niri-windows"; }
+    Super+Tab { spawn-sh "pkill fuzzel || ~/.config/niri/scripts/anyrun-niri-windows"; }
     Mod+N { spawn-sh "swaync-client -t -sw"; }
 
     Mod+B { spawn "qutebrowser"; }
@@ -366,7 +366,7 @@ binds {
 
 recent-windows {
     highlight {
-        active-color "#35b9ab"
+        active-color "#1cb08e"
         corner-radius 4
     }
     binds {

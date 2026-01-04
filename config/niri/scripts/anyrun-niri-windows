@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+windows_list=$(niri msg -j windows | jq -r '.[] | "\(.id)\t\(.title) (\(.app_id))"')
+workspaces_list=$(niri msg -j workspaces | jq -r '.[] | select(.name != null) | "WS: \(.name)"')
+selected_line=$(printf "%s\n%s" "$windows_list" "$workspaces_list" | anyrun --plugins=libstdin.so --show-results-immediately=true)
+if [ -n "$selected_line" ]; then
+    if [ "$selected_line" == "WS: "* ]; then
+        workspace_name=$(echo "$selected_line" | sed 's/^WS: //')
+        niri msg action focus-workspace "$workspace_name"
+    else
+        window_id=$(echo "$selected_line" | cut -f1)
+        niri msg action focus-window --id "$window_id"
+    fi
+fi

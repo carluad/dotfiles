@@ -1,14 +1,21 @@
 {
-  "icon_theme": "Adwaita-teal",
   "position": "top",
   "height": 24,
   "start": [
+    {
+      "type": "menu",
+      "label": ""
+    },
     {
       "type": "workspaces"
     },
     {
       "type": "focused",
-      "icon_size": 16
+      "icon_size": 16,
+      "truncate": {
+        "mode": "end",
+        "max_length": 60
+      }
     }
   ],
   "center": [],
@@ -27,13 +34,6 @@
         "mode": "end",
         "length": 30
       }
-    },
-    {
-      "type": "network_manager",
-      "icon_size": 16
-    },
-    {
-      "type": "bluetooth"
     },
     {
       "type": "volume"
