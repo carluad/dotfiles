@@ -4,7 +4,7 @@ OPTIONS=$(echo -e "Logout\nReboot\nPoweroff" | fuzzel -d -p " " -w 15 -l 3)
 
 case $OPTIONS in
   "Logout")
-    niri msg action quit --skip-confirmation
+    loginctl terminate-user $USER
     ;;
   "Reboot")
     systemctl reboot

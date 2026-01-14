@@ -1,0 +1,74 @@
+#!/bin/sh
+
+greeter=0
+desktop=0
+
+desktop_bg="$HOME/.config/background"
+overview_bg="$HOME/.config/background_overview"
+greeter_bg="/etc/greetd/background"
+blurred_bg_file="/tmp/set-bg-blurred_background"
+
+check_exists() {
+  if [ ! -f $1 ]; then
+    echo "$1: invalid file for background"
+    exit 1
+  fi
+}
+
+make_blur() {
+  magick $1 -scale 50% -blur 0x4 $blurred_bg_file
+}
+
+usage() {
+  echo "Usage: set-bg [-g] -[-d] image" >&2
+  echo ""
+  echo "OPTIONS"
+  echo "       -g    Set display manager background"
+  echo "       -d    Set desktop background"
+  echo ""
+  echo "ARGUMENTS"
+  echo "       image    The image file for background"
+  exit 1
+}
+
+# Parse options
+# g    : greeter flag
+# d    : desktop flag
+while getopts "gd" opt; do
+  case "$opt" in
+    g)
+      greeter=1
+      ;;
+    d)
+      desktop=1
+      ;;
+    *)
+      usage
+      ;;
+  esac
+done
+
+shift $((OPTIND - 1))
+
+if [ "$#" -lt 1 ]; then
+  usage
+fi
+
+image=$1
+shift
+
+check_exists $image
+make_blur $image
+
+if [ "$greeter" -eq 1 ]; then
+  pkexec cp $blurred_bg_file $greeter_bg
+  rm $blurred_bg_file
+fi
+
+if [ "$desktop" -eq 1 ]; then
+  cp $image $desktop_bg
+  swww img $desktop_bg
+  cp $blurred_bg_file $overview_bg
+  swww img -n overview $overview_bg
+  rm $blurred_bg_file
+fi
